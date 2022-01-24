@@ -1,3 +1,5 @@
+### Unity Version: 2020.3.26f1
+
 ### Essential sounds assignment:
 * Jackie - bounce/hit wall
 * Julian - death
