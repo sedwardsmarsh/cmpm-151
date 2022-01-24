@@ -8,11 +8,15 @@ using UnityOSC;
 
 public class MovePlayer : MonoBehaviour {
 
+	public int DEATH_Y_POS = -50;
+
 	public float speed;
 	public Text countText;
 
 	private Rigidbody rb;
 	private int count;
+
+	private Vector3 startingPos;
 
 	//************* Need to setup this server dictionary...
 	Dictionary<string, ServerLog> servers = new Dictionary<string, ServerLog> ();
@@ -32,6 +36,8 @@ public class MovePlayer : MonoBehaviour {
         rb = GetComponent<Rigidbody> ();
 		count = 0;
 		setCountText ();
+
+		startingPos = transform.position;
 	}
 	
 
@@ -45,6 +51,12 @@ public class MovePlayer : MonoBehaviour {
 		Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
 
 		rb.AddForce (movement*speed);
+
+		//player death
+		if (transform.position.y <= DEATH_Y_POS)
+        {
+			killPlayer();
+        }
 
 		//************* Routine for receiving the OSC...
 		OSCHandler.Instance.UpdateLogs();
@@ -78,7 +90,7 @@ public class MovePlayer : MonoBehaviour {
 			setCountText ();
 
 
-            // change the tempo of the sequence based on how many obejcts we have picked up.
+            // change the tempo of the sequence based on how many objects we have picked up.
             if(count < 2)
             {
                 OSCHandler.Instance.SendMessageToClient("pd", "/unity/tempo", 500);
@@ -118,5 +130,10 @@ public class MovePlayer : MonoBehaviour {
 		OSCHandler.Instance.SendMessageToClient ("pd", "/unity/trigger", count);
 		//*************
 	}
-		
+	
+	void killPlayer()
+    {
+		OSCHandler.Instance.SendMessageToClient("pd", "/unity/death", 1);
+		transform.position = startingPos;
+	}
 }
