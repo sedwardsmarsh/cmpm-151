@@ -109,7 +109,7 @@ public class MovePlayer : MonoBehaviour {
             }
             else
             {
-                OSCHandler.Instance.SendMessageToClient("pd", "/unity/playseq", 0);
+                OSCHandler.Instance.SendMessageToClient("pd", "/unity/playseq", 170);
             }
 
         }
