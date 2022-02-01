@@ -1,4 +1,4 @@
-#N canvas 993 -1092 1005 570 10;
+#N canvas 993 -1092 994 501 10;
 #X text 177 277 creation arguments are OSC address;
 #X text 179 238 set message to change OSC address;
 #X text 164 48 1 Set IP Address : network address;
@@ -60,7 +60,7 @@
 #X connect 26 0 27 0;
 #X connect 27 0 28 0;
 #X restore 47 142 pd oscReceive;
-#X obj 47 36 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 47 36 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 47 61 \; pd dsp \$1;
 #X obj 44 278 oscformat PD message;
@@ -84,47 +84,10 @@
 #X connect 8 0 7 0;
 #X restore 47 118 pd oscSend;
 #X obj 44 313 s oscOut;
-#X obj 1070 974 *~;
-#X obj 1061 1019 dac~;
-#X obj 1077 643 mtof;
-#X obj 1076 602 + 0;
-#X obj 1059 354 metro 4000;
-#X obj 1061 321 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X floatatom 1117 325 5 0 0 0 - - -;
-#X obj 1040 388 f;
-#X obj 1083 390 + 1;
-#X obj 1061 455 select 0 1 2 3;
-#X obj 1239 847 vline~;
-#X floatatom 1223 540 5 0 0 0 - - -;
-#X obj 1223 487 loadbang;
-#X obj 1060 423 mod 4;
-#X msg 1034 508 0;
 #X obj 800 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1026 843 phasor~;
-#X floatatom 1024 784 5 0 0 0 - - -;
-#X obj 1101 842 phasor~;
-#X obj 1100 811 * -1;
-#X obj 1069 901 +~;
-#X obj 1067 934 -~ 1;
-#X msg 1102 780 0;
-#X msg 1150 780 0.5;
-#X obj 1123 750 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1122 725 loadbang;
-#X obj 1177 274 r osctempo;
-#X obj 1102 248 loadbang;
-#X msg 1118 292 500;
 #X obj 794 224 r oscwall;
-#X msg 1073 508 -5;
-#X msg 1114 508 -3;
-#X msg 1156 508 -1;
-#X msg 1239 795 0.5 25 \, 0 100 75;
-#X msg 1223 514 48;
 #X text 715 197 Trigger noise burst when running into a wall;
-#X text 994 197 Sequence playback: tempo increases as more cubes are
-collected.;
 #N canvas -313 -1300 1105 997 death_sound 0;
 #X obj 334 927 osc~;
 #X obj 334 981 *~;
@@ -390,7 +353,7 @@ modulation?;
 -1 -1 9800 1;
 #X obj 210 500 *~;
 #X obj 345 515 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0.694488 256;
+-262144 -1 -1 0.808661 256;
 #X connect 0 0 1 0;
 #X connect 1 0 15 0;
 #X connect 3 0 5 0;
@@ -424,13 +387,13 @@ modulation?;
 #X connect 30 0 29 1;
 #X restore 799 302 pd bounce;
 #N canvas -383 -1279 1497 802 BGM 0;
-#X obj 19 21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 19 21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 19 46 \; pd dsp \$1;
 #X obj 718 39 hradio 15 1 0 32 empty empty empty 0 -8 0 10 -262144
--1 -1 20;
+-1 -1 21;
 #X floatatom 567 17 5 0 0 0 - - -;
-#X obj 508 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 508 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 507 81 f;
 #X obj 547 82 + 1;
@@ -610,46 +573,6 @@ in super monkey ball., f 50;
 #X connect 8 0 9 0;
 #X connect 10 0 13 0;
 #X connect 11 0 10 0;
-#X connect 14 0 15 0;
-#X connect 14 0 15 1;
-#X connect 16 0 31 0;
-#X connect 17 0 16 0;
-#X connect 18 0 21 0;
-#X connect 18 0 47 0;
-#X connect 19 0 18 0;
-#X connect 20 0 18 1;
-#X connect 21 0 22 0;
-#X connect 21 0 27 0;
-#X connect 22 0 21 1;
-#X connect 23 0 28 0;
-#X connect 23 1 44 0;
-#X connect 23 2 45 0;
-#X connect 23 3 46 0;
-#X connect 24 0 14 1;
-#X connect 25 0 17 1;
-#X connect 26 0 48 0;
-#X connect 27 0 23 0;
-#X connect 28 0 17 0;
-#X connect 29 0 52 0;
-#X connect 30 0 34 0;
-#X connect 31 0 30 0;
-#X connect 31 0 33 0;
-#X connect 32 0 34 1;
-#X connect 33 0 32 0;
-#X connect 34 0 35 0;
-#X connect 35 0 14 0;
-#X connect 36 0 30 1;
-#X connect 37 0 32 1;
-#X connect 38 0 36 0;
-#X connect 38 0 37 0;
-#X connect 39 0 38 0;
-#X connect 40 0 20 0;
-#X connect 41 0 42 0;
-#X connect 42 0 20 0;
-#X connect 43 0 29 0;
-#X connect 44 0 17 0;
-#X connect 45 0 17 0;
-#X connect 46 0 17 0;
-#X connect 47 0 24 0;
-#X connect 48 0 25 0;
-#X connect 55 0 54 0;
+#X connect 14 0 18 0;
+#X connect 15 0 14 0;
+#X connect 21 0 20 0;
